@@ -1,0 +1,25 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "seang",
+      "wins": 0,
+      "losses": 0,
+      "ties": 0
+    },
+    {
+      "name": "johnm",
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "id": 2
+    },
+    {
+      "name": "",
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "id": 3
+    }
+  ]
+}
