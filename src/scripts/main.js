@@ -2,6 +2,8 @@ let x = "images/x.jpg"
 let o = "images/o.png"
 let click = 0
 let $game = document.querySelector("#game")
+let $newGame = document.querySelector("#newGame")
+let $endGameBtn = document.querySelector("#endGame")
 let winningConditions = [
     [1, 2, 3],
     [4, 5, 6],
@@ -27,20 +29,23 @@ function winChecker(playerArray, winArray, player) {
                     counter += 1
                 }
                 if(counter === 3){
-                    alert(`${player.toUpperCase()} has won!`)
-
+                    let winner = document.querySelector(`#${player}Player h1`).innerHTML
+                    document.querySelector("#gameResult").innerHTML = `${winner.toUpperCase()} has won!`
                     if(player != "x") {
+                        displayToggleBtn(".gameOver")
                         updateRecord("x", "loss")
-                        updateRecord(player, "win")
+                        updateRecord("o", "win")
                     }else{
-                        updateRecord(player, "win")
-                        updaterecord("o", "loss")
+                        displayToggleBtn(".gameOver")
+                        updateRecord("x", "win")
+                        updateRecord("o", "loss")
                     }
                 }
             }
         })
     }else if(tieCheck === 9){
-        alert("The game is a tie!")
+        document.querySelector("#gameResult").innerHTML = "The game is a tie!"
+        displayToggleBtn(".gameOver")
         updateRecord("x", "tie")
         updateRecord("o", "tie")
     }
@@ -67,6 +72,35 @@ $game.addEventListener("click", event => {
         winChecker(oArray, winningConditions, "o")
         oTurn = false
     }
+})
+
+$newGame.addEventListener("click", () => {
+    let box = document.querySelectorAll(".box")
+    box.forEach(box => {
+        box.style.backgroundImage = "none"
+        box.className = "box"
+    })
+    displayToggleBtn(".gameOver")
+    let playerX = document.querySelector(`#xPlayer h1`).innerHTML
+    API.searchPlayers(playerX)
+    .then(reply => {
+        createPlayerCard(reply[0], player1Dom, $player1Display, 1)
+    })
+    let playerO = document.querySelector(`#oPlayer h1`).innerHTML
+    API.searchPlayers(playerO)
+    .then(reply => {
+        createPlayerCard(reply[0], player2Dom, $player2Display, 2)
+    })
+})
+
+$endGameBtn.addEventListener("click", () => {
+    let box = document.querySelectorAll(".box")
+    box.forEach(box => {
+        box.style.backgroundImage = "none"
+        box.className = "box"
+    })
+    displayToggleBtn("#players")
+    displayToggleBtn(".gameOver")
 })
 
 

@@ -17,8 +17,8 @@ const API = {
             })
             .then(response => response.json());
     },
-    updateRecord: function (obj, player) {
-        return fetch(`http://localhost:8088/players?name=${player}`, {
+    updateRecord: function (obj, id) {
+        return fetch(`http://localhost:8088/players/${id}`, {
                 method: "PATCH",
                 headers: {
                 "Content-Type": "application/json"

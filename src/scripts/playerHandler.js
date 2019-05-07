@@ -22,44 +22,39 @@ function createPlayerCard(playerobj, frag, div, num) {
     name.textContent = `${playerobj.name}`
     frag.appendChild(name)
     let record = document.createElement("h2")
-    record.textContent = `${playerobj.wins}-${playerobj.losses}-${playerobj.losses}`
+    record.textContent = `${playerobj.wins}-${playerobj.losses}-${playerobj.ties}`
     frag.appendChild(record)
     div.innerHTML = ""
     div.appendChild(frag)
 }
 
 function updateRecord (player, wlt) {
-    debugger
     let player2Update = document.querySelector(`#${player}Player h1`).innerHTML
     if(wlt === "win"){
     queryPlayer(player2Update)
         .then(reply => {
-            debugger
             console.log(reply)
+            let player = reply[0].id
             let newWins = reply[0].wins +1
-            let record = {
-                wins: newWins
-            }
+            let record = {wins: newWins}
             console.log(record)
-            API.updateRecord(record, player2Update)
+            API.updateRecord(record, player)
     })
     }else if(wlt === "loss"){
         API.searchPlayers(player2Update)
         .then(reply => {
+                let player = reply[0].id
                 let newLosses = reply[0].losses +1
-                let record = {
-                    losses: newLosses
-                }
-                API.updateRecord(record, player2Update)
+                let record = {losses: newLosses}
+                API.updateRecord(record, player)
         })
     }else if(wlt === "tie"){
         API.searchPlayers(player2Update)
         .then(reply => {
+                let player = reply[0].id
                 let newTies = reply[0].ties +1
-                let record = {
-                    ties: newTies
-                }
-                API.updateRecord(record, player2Update)
+                let record = {ties: newTies}
+                API.updateRecord(record, player)
         })
     }
 }
@@ -73,12 +68,13 @@ let player1;
 
 
 $player1SearchBtn.addEventListener("click", () => {
-    let userName = document.querySelector("#search1").value
+    let userName = document.querySelector("#search1").value.toLowerCase()
     queryPlayer(userName)
         .then(reply => {
             player1 = reply
             createPlayerCard(reply[0], player1Dom, $player1Return, 1)
         })
+    document.querySelector("#search1").value = ""
 })
 
 $player1AddBtn.addEventListener("click", () => {
@@ -95,6 +91,7 @@ $player1AddBtn.addEventListener("click", () => {
                     createPlayerCard(reply[0], player1Dom, $player1Return, 1)
             }
         })
+    document.querySelector("#add1").value = ""
 })
 
 $player1ReadyBtn.addEventListener("click", () => {
@@ -114,6 +111,7 @@ $player1ReadyBtn.addEventListener("click", () => {
         .then(reply => {
             player1 = reply
             createPlayerCard(reply[0], player1Dom, $player1Display, 1)
+            checkForReady(1)
         })
     }
 })
@@ -130,11 +128,12 @@ let player2;
 
 
 $player2SearchBtn.addEventListener("click", () => {
-    let userName = document.querySelector("#search2").value
+    let userName = document.querySelector("#search2").value.toLowerCase()
     queryPlayer(userName)
         .then(reply => {
             createPlayerCard(reply[0], player2Dom, $player2Return, 2)
         })
+    document.querySelector("#search2").value = ""
 
 })
 
@@ -152,6 +151,7 @@ $player2AddBtn.addEventListener("click", () => {
                     createPlayerCard(reply, player2Dom, $player2Return, 2)
             }
         })
+    document.querySelector("#add2").value = ""
 })
 
 $player2ReadyBtn.addEventListener("click", () => {
@@ -171,7 +171,25 @@ $player2ReadyBtn.addEventListener("click", () => {
         .then(reply => {
             player2 = reply
             createPlayerCard(reply[0], player2Dom, $player2Display, 2)
+            checkForReady(2)
         })
     }
 })
 
+function checkForReady (num) {
+    if(num === 1){
+        if($player2Display.innerHTML != ""){
+            displayToggleBtn("#players")
+        }
+    }else{
+        if($player1Display.innerHTML != ""){
+            displayToggleBtn("#players")
+        }
+    }
+}
+
+function displayToggleBtn (element) {
+    let div = document.querySelector(element)
+    div.classList.toggle("off")
+    div.classList.toggle("on")
+}

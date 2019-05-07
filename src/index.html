@@ -8,30 +8,31 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div id="players">
+    <div id="players" class="players on">
         <h1>Pick your players</h1>
-        <div id="xPlayerSelect">
-            <h2>Player 1</h2>
-            <div class="search">
-                <label for="seach1">Search for Your Player:</label>
-                <input type="text" name="search1" id="search1" placeholder="Enter Player Name">
-                <button id="search1btn">SEARCH</button>
+        <button id="leaderBoard">SEE LEADERBOARD</button>
+        <div class="selectors">
+            <div id="xPlayerSelect">
+                <h2>Player 1</h2>
+                <div class="search">
+                    <label for="seach1">Search for Your Player:</label>
+                    <input type="text" name="search1" id="search1" placeholder="Enter Player Name">
+                    <button id="search1btn">SEARCH</button>
+                </div>
+                <div class="addNew">
+                    <label for="add1">Add New Player:</label>
+                    <input type="text" name="add1"  id="add1" placeholder="Enter Player Name">
+                    <button id="add1btn">ADD</button>
+                </div>
+                <div class="return">
+                    <div id="exist1"></div>
+                    <div id="return1"></div>
+                    <button id="ready1">READY</button>
+                </div>
             </div>
-            <div class="addNew">
-                <label for="add1">Add New Player:</label>
-                <input type="text" name="add1"  id="add1" placeholder="Enter Player Name">
-                <button id="add1btn">ADD</button>
-            </div>
-            <div class="return">
-                <div id="exist1"></div>
-                <div id="return1"></div>
-                <button id="ready1">READY</button>
-            </div>
-
-        </div>
-        <div id="oPlayerSelect">
-            <h2>Player 2</h2>
-            <div class="search">
+            <div id="oPlayerSelect">
+                <h2>Player 2</h2>
+                <div class="search">
                     <label for="seach2">Search for Your Player:</label>
                     <input type="text" name="search2" id="search2" placeholder="Enter Player Name">
                     <button id="search2btn">SEARCH</button>
@@ -46,34 +47,48 @@
                     <div id="return2"></div>
                     <button id="ready2">READY</button>
                 </div>
+            </div>
         </div>
     </div>
     <div class="container">
         <p>Sean's Tic-Tac-Toe Game</p>
-        <div class="game" id="xPlayer"></div>
-        <div class="game" id="game">
-            <div id="row1" class="row">
-                <div id="1" class="box"></div>
-                <div id="2" class="box"></div>
-                <div id="3" class="box"></div>
-            </div>
-            <div id="row2" class="row">
-                <div id="4" class="box"></div>
-                <div id="5" class="box"></div>
-                <div id="6" class="box"></div>
-            </div>
-            <div id="row3" class="row">
-                <div id="7" class="box"></div>
-                <div id="8" class="box"></div>
-                <div id="9" class="box"></div>
-            </div>
+<div class="gameDisplay">
+    <div class="playerCard" id="xPlayer"></div>
+    <div class="game" id="game">
+        <div id="row1" class="row">
+            <div id="1" class="box"></div>
+            <div id="2" class="box"></div>
+            <div id="3" class="box"></div>
         </div>
-        <div class="game" id="oPlayer"></div>
+        <div id="row2" class="row">
+            <div id="4" class="box"></div>
+            <div id="5" class="box"></div>
+            <div id="6" class="box"></div>
+        </div>
+        <div id="row3" class="row">
+            <div id="7" class="box"></div>
+            <div id="8" class="box"></div>
+            <div id="9" class="box"></div>
+        </div>
+        <div class="buttons">
+        </div>
     </div>
-<div class="gameover"></div>
+    <div class="playerCard" id="oPlayer"></div>
+</div>
+    </div>
+    <div class="gameOver off">
+        <h1 id="gameResult"></h1>
+        <button id="newGame">NEW GAME</button>
+        <button id="endGame">END GAME</button>
+    </div>
+    <div class="leaders off">
+        <h1>LEADERS</h1>
+        <div class="leaderbrd"></div>
+        <button id="ldrGoBack">GO BACK</button>
+    </div>
 <script src="scripts/dbcalls.js"></script>
 <script src="scripts/playerHandler.js"></script>
-<script src="scripts/domGenerator.js"></script>
+<script src="scripts/leaderLogic.js"></script>
 <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -3,23 +3,58 @@
     {
       "id": 1,
       "name": "seang",
-      "wins": 0,
-      "losses": 0,
-      "ties": 0
+      "wins": 24,
+      "losses": 7,
+      "ties": 4
     },
     {
       "name": "johnm",
-      "wins": 0,
-      "losses": 0,
-      "ties": 0,
+      "wins": 5,
+      "losses": 9,
+      "ties": 3,
       "id": 2
     },
     {
-      "name": "",
+      "name": "brenda",
+      "wins": 7,
+      "losses": 3,
+      "ties": 1,
+      "id": 3
+    },
+    {
+      "name": "robbie",
+      "wins": 5,
+      "losses": 5,
+      "ties": 1,
+      "id": 4
+    },
+    {
+      "name": "kingjoey",
+      "wins": 0,
+      "losses": 1,
+      "ties": 0,
+      "id": 5
+    },
+    {
+      "name": "joel",
       "wins": 0,
       "losses": 0,
-      "ties": 0,
-      "id": 3
+      "ties": 1,
+      "id": 6
+    },
+    {
+      "name": "hughes",
+      "wins": 0,
+      "losses": 0,
+      "ties": 1,
+      "id": 7
+    },
+    {
+      "name": "bryan",
+      "wins": 5,
+      "losses": 5,
+      "ties": 1,
+      "id": 8
     }
   ]
 }

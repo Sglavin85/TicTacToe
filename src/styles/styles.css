@@ -1,17 +1,19 @@
+
 *{
     margin: 0;
     padding: 0;
+    color: #BEC5AD;
 }
 
 html {
-    background-color: darkgrey;
+    background-color: #3b5249;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: darkgrey;
+    background-color: #3b5249;
     justify-content: center;
     align-items: center;
 }
@@ -47,6 +49,183 @@ p {
     background-color: rgb(214, 214, 214);
 }
 
-#xPlayer h1 {
-    background-color: red;
+#players {
+    position: absolute;
+    align-self: center;
+    width: 40%;
+    height: 950px;
+    top: 75px;
+    left: 30%;
+    background-color: #519872ed;
+    flex-direction: column;
+    border-radius: 25%;
+    border: 2px solid black;
+    color: black;
+    overflow: auto;
+}
+
+#players h1 {
+    margin: 15px auto;
+    font-size: 50px;
+    color: black;
+}
+
+.selectors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+#xPlayerSelect, #oPlayerSelect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 15px;
+}
+
+#xPlayerSelect h2, #oPlayerSelect h2 {
+    color: black;
+    font-size: 30px;
+    align-self: center;
+    margin-right: 150px;
+}
+
+#xPlayerSelect div, #oPlayerSelect div {
+    margin-top: 15px;
+}
+
+label {
+    color: black;
+    font-size: 45px;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.877);
+    font-size: 30px;
+    height: 50px;
+    color: black;
+}
+
+.gameDisplay {
+    display: flex;
+    flex-direction: row;
+    align-content: baseline;
+    justify-content: center;
+}
+
+.return {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaderBoard {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.return button {
+    width: auto;
+    margin-right: 180px;
+}
+
+#return1, #return2 {
+    align-self: center
+}
+
+.off {
+    display: none
+}
+.on {
+    display: flex;
+}
+
+button {
+    background-color: #48A9A6;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    color: black;
+}
+
+.playerCard {
+    background-color: #4281A4;
+    height: 300px;
+    width: 300px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#xPlayer {
+    border-radius: 25px 0 0 25px;
+}
+
+#oPlayer {
+    border-radius: 0 25px 25px 0;
+}
+
+.playerCard h1, .playerCard h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.gameOver {
+    position: absolute;
+    align-self: center;
+    width: 40%;
+    height: 650px;
+    top: 75px;
+    left: 30%;
+    background-color: #519872ed;
+    flex-direction: column;
+    border-radius: 25%;
+    border: 2px solid black;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+#newGame {
+    align-self: center;
+    position: relative;
+}
+
+.leaders {
+    position: absolute;
+    align-self: center;
+    width: 40%;
+    height: 650px;
+    top: 75px;
+    left: 30%;
+    background-color: #519872ed;
+    flex-direction: column;
+    border-radius: 25%;
+    border: 2px solid black;
+    color: black;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leaders h1{
+    color: black;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#leaderbrd {
+    margin-top: 8px;
+    color: black;
+}
+
+.gameOver button {
+    margin: 10px;
 }
